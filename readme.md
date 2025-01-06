@@ -1,107 +1,117 @@
-# PDF Q&A Assistant
+# PDF RAG Chat Assistant
 
-The PDF Q&A Assistant is a Streamlit application that allows users to upload a PDF document and interact with its content through a conversational AI interface. By leveraging LangChain, Chroma, and OpenAI's GPT model, users can ask questions about the PDF and receive detailed responses based on the document's content.
+An intelligent document question-answering system that uses Retrieval Augmented Generation (RAG) to provide accurate responses to questions about PDF content. Built with LangChain, OpenAI, and Chroma vector store.
 
----
+## 🌟 Features
 
-## Features
+- 📄 PDF text extraction and processing
+- 💡 Smart text chunking with overlap
+- 🔍 Advanced RAG implementation
+- 💬 Interactive chat interface
+- 🎯 Source attribution for answers
+- 🔄 Conversation history tracking
+- 🧹 Automatic text cleaning
 
-- **PDF Text Extraction**: Extracts and cleans text from uploaded PDF files.
-- **Document Processing**: Splits the PDF text into smaller, manageable chunks for embedding.
-- **Vector Store Creation**: Generates embeddings using OpenAI and stores them in a persistent Chroma database.
-- **Conversational AI**: Enables a natural question-and-answer interface powered by OpenAI's GPT-3.5-turbo.
-- **Source Traceability**: Displays the sources used to generate each answer.
+## 🏗️ Architecture
 
----
+![alt text](<Screenshot 2025-01-06 at 6.22.29 AM.png>)
 
-## Requirements
+## 🛠️ Technical Stack
 
-### Libraries
+- **LangChain**: RAG implementation and chain orchestration
+- **OpenAI**: Embeddings and chat completion
+- **ChromaDB**: Vector store for document embeddings
+- **Streamlit**: Interactive web interface
+- **PyPDF2**: PDF processing
 
-- Python 3.10+
-- Streamlit
-- PyPDF2
-- LangChain
-- LangChain Community VectorStores
-- OpenAI
-- ChromaDB
+## 📦 Installation
 
-### Create a virtual environment and activate it:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Installation
+1. Clone the repository:
 
 ```bash
-pip install streamlit PyPDF2 langchain langchain-community-vectorstores langchain-openai chromadb
+git clone https://github.com/yourusername/pdf-rag-chat-assistant.git
+cd pdf-rag-chat-assistant
 ```
 
----
+2. Install dependencies:
 
-## How It Works
-
-1. **PDF Upload**: Users upload a PDF file through the sidebar.
-2. **Text Processing**: The application extracts and cleans text from the uploaded PDF.
-3. **Document Chunking**: The text is split into smaller chunks using LangChain's `RecursiveCharacterTextSplitter`.
-4. **Vector Store Creation**: OpenAI embeddings are generated and stored in a Chroma vector store.
-5. **Conversation Chain**: A conversational retrieval chain is initialized to handle user queries.
-6. **Interactive Q&A**: Users ask questions, and the AI retrieves relevant chunks from the vector store to generate answers, complete with sources.
-
----
-
-## Usage
-
-1. **Run the Application**:
-
-   ```bash
-   streamlit run app.py
-   ```
-
-2. **Setup**:
-
-   - Enter your OpenAI API key in the sidebar.
-   - Upload a PDF file.
-
-3. **Ask Questions**:
-   - Type a question in the chat input box.
-   - View the AI-generated answer and source documents.
-
----
-
-## System Architecture
-
-![alt text](image.png)
-
----
-
-## Folder Structure
-
-```plaintext
-project-directory/
-├── app.py                 # Main application script
-├── chroma_db/             # Persistent storage for Chroma vector store
-├── README.md              # Project documentation
-└── requirements.txt       # List of dependencies
+```bash
+pip install -r requirements.txt
 ```
 
----
+3. Create requirements.txt with:
 
-## Troubleshooting
+```
+streamlit
+langchain
+openai
+chromadb
+pypdf2
+```
 
-### Common Issues
+## 🔑 Configuration
 
-1. **No Text Extracted from PDF**:
+Required:
 
-   - Ensure the PDF contains selectable text. Scanned PDFs may require OCR preprocessing.
+- OpenAI API key
+- PDF document(s) for processing
 
-2. **API Key Error**:
+## 🚀 Usage
 
-   - Verify that the OpenAI API key is correct and active.
+1. Start the application:
 
-3. **Vector Store Not Created**:
-   - Ensure the PDF contains enough text for processing.
+```bash
+streamlit run app.py
+```
 
----
+2. In the web interface:
+   - Enter your OpenAI API key
+   - Upload a PDF document
+   - Wait for processing to complete
+   - Start asking questions about your document
+
+## 💡 Key Components
+
+### PDF Processing
+
+- Text extraction from PDFs
+- Text cleaning and normalization
+- Chunk creation with overlap
+- Document metadata handling
+
+### RAG Implementation
+
+- OpenAI embeddings generation
+- Chroma vector store integration
+- Semantic search functionality
+- Source document retrieval
+
+### Chat Interface
+
+- Conversation history tracking
+- Interactive Q&A
+- Source attribution display
+- Error handling
+
+## 📊 Project Structure
+
+```
+pdf-rag-chat-assistant/
+├── app.py              # Main application
+├── chroma_db/          # Vector store data
+├── requirements.txt    # Dependencies
+├── README.md          # Documentation
+└── .gitignore         # Git ignore file
+```
+
+## ⚠️ Limitations
+
+- Requires OpenAI API key
+- Text-based PDF processing only
+- Memory-based conversation history
+- Processing time depends on PDF size
+- Rate limits based on OpenAI API
+
+## Screenshot of the working Application
+
+![alt text](<Screenshot 2025-01-06 at 6.24.08 AM.png>)

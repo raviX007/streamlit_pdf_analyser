@@ -154,7 +154,7 @@ def main():
     if "chain" not in st.session_state:
         st.session_state.chain = None
 
-    st.title("PDF Question and Answer Assistant")
+    st.title("PDF RAG Chat Assistant")
     st.write("Upload a PDF and ask questions about its content!")
 
     # Sidebar for API key and file upload

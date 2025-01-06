@@ -121,7 +121,7 @@ def main():
     if "conversation_chain" not in st.session_state:
         st.session_state.conversation_chain = None
 
-    st.title("PDF Question and Answer Assistant")
+    st.title("PDF RAG Chat Assistant")
     st.write("Upload a PDF and ask questions about its content!")
 
     with st.sidebar:
